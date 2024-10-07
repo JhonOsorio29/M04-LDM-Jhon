@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="receptes" type="receptesinfo"/>
+
+    <xs:complexType name="receptesinfo">
+            <xs:sequence>
+                <xs:element name="recepta" maxOccurs="2" type="receptainfo"/>
+            </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="receptainfo">
+        <xs:sequence>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="ingredients" maxOccurs="10" type="ingredientsinfo"/>
+            <xs:element name="passos" type="passosinfo" maxOccurs="10" minOccurs="1"/>
+        </xs:sequence>
+        <xs:attribute name="dificultat" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:complexType name="ingredientsinfo">
+        <xs:sequence>
+            <xs:element name="ingredient" type="ingredientinfo" maxOccurs="10"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ingredientinfo">
+        <xs:sequence>
+            <xs:element name="quantitat" type="quantitatinfo"/>
+            <xs:element name="nom" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="passosinfo">
+        <xs:sequence>
+            <xs:element name="pas" type="xs:string" maxOccurs="10" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="quantitatinfo">
+        <xs:sequence>
+            <xs:element name="valor" type="xs:integer"/>
+            <xs:element name="mesura" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
